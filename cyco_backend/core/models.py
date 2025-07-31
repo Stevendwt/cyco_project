@@ -18,11 +18,10 @@ class Article(models.Model):
 class Video(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
-    description = models.TextField()
-    video_url = models.URLField()
-    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, default="dasar")
-    created_at = models.DateTimeField(auto_now_add=True)
-
+    description = models.TextField(blank=True)
+    video_url = models.URLField() # Diisi dengan link YouTube
+    category = models.CharField(max_length=100)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title

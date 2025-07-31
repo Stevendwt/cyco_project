@@ -69,9 +69,10 @@ class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all().order_by('-created_at')
     serializer_class = ArticleSerializer
     permission_classes = [AllowAny]  # Ganti ke [IsAuthenticated] jika butuh login
-
-
+    
 class VideoViewSet(viewsets.ModelViewSet):
-    queryset = Video.objects.all().order_by('-created_at')
+    queryset = Video.objects.all().order_by('-uploaded_at')
+    permission_classes = [AllowAny]  # atau IsAuthenticated
     serializer_class = VideoSerializer
-    permission_classes = [AllowAny]  # Ganti ke [IsAuthenticated] jika butuh login
+
+
